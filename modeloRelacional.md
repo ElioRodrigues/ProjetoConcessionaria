@@ -2,14 +2,12 @@
 
 ## Diagrama
 
-![Diagrama MER](ERD_diagram.png)
-
 ## Descrição das Entidades e Relações
 
 ### Entidades
 
 #### Cliente
-- **ID** (Primary Key)
+- **ID** (Primary Key)  
   - Tipo: Inteiro
   - Descrição: Identificador único do cliente.
 - **Nome**

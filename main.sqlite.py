@@ -11,6 +11,8 @@ from deletar_cliente import deletar_cliente
 from criar_tabela_usuarios import criar_tabela_usuarios
 from inserir_usuario import inserir_usuario
 from verificar_login import verificar_login
+from listar_tabelasurpresa import listar_tabelasurpresa
+from tabelasurpresa import tabelasurpresa
 
 conexao = sqlite3.connect('main.sqlite')
 cursor = conexao.cursor()
@@ -18,6 +20,7 @@ cursor = conexao.cursor()
 # Criar tabelas
 criar_tabela()
 criar_tabela_usuarios()
+tabelasurpresa()
 
 # Função para registrar novos usuários
 def registrar_usuario():
@@ -51,7 +54,8 @@ def main():
         print("\n 7- Deletar Clientes")
         print("\n 8- Realizar Venda")
         print("\n 9- Listar Vendas")
-        print("\n 10- Sair\n")
+        print("\n 10- Tabela Surpresa")
+        print("\n 11- Sair\n")
 
         escolha = input("Escolha uma opção: ")
 
@@ -109,8 +113,11 @@ def main():
 
         elif escolha == "9":
             listar_vendas()
-
+            
         elif escolha == "10":
+            listar_tabelasurpresa()
+
+        elif escolha == "11":
             print("Saindo do programa. Até logo!")
             break
 

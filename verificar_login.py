@@ -1,15 +1,21 @@
 import sqlite3
+import bcrypt
 
 def verificar_login(username, senha):
     conexao = sqlite3.connect('main.sqlite')
     cursor = conexao.cursor()
     cursor.execute('''
-        SELECT * FROM usuarios WHERE username = ? AND senha = ?
-    ''', (username, senha))
-    usuario = cursor.fetchone()
+        SELECT senha FROM usuarios WHERE username = ?
+    ''', (username,))
+    registro = cursor.fetchone()
     conexao.close()
-    return usuario is not None
+    
+    if registro:
+        hashed = registro[0]
+        if bcrypt.checkpw(senha.encode('utf-8'), hashed):
+            return True
+    
+    return False
 
 if __name__ == "__main__":
-    # Teste da função verificar_login
     print(verificar_login('admin', 'admin'))  # Substitua pelos dados reais para teste

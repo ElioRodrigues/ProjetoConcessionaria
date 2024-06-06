@@ -1,17 +1,17 @@
 import sqlite3
 
-def criar_tabela_usuarios():
+def tabelasurpresa():
     conexao = sqlite3.connect('main.sqlite')
     cursor = conexao.cursor()
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS usuarios (
+        CREATE TABLE IF NOT EXISTS tabelasurpresa (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT NULL UNIQUE,
-            senha BLOB NOT NULL
+            descricao TEXT NOT NULL,
+            valor REAL NOT NULL
         )
     ''')
     conexao.commit()
     conexao.close()
 
 if __name__ == "__main__":
-    criar_tabela_usuarios()
+    tabelasurpresa()

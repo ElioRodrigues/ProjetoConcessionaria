@@ -28,10 +28,11 @@ def listar_vendas():
         for venda in vendas:
             print(f"ID da venda: {venda[0]}")
             print(f"ID do cliente: {venda[1]}")
-            print(f"Data da venda: {venda[2]}")
+            print(f"Data da venda: {venda[2]} \n") 
         cursor.execute('''SELECT id_carro, preco_venda FROM carro_venda''')
         carro_vendas = cursor.fetchall()
         for carro_venda in carro_vendas:
             print(f"ID do carro: {carro_venda[0]}")
             print(f"Preço da venda: {carro_venda[1]}")
+            
         
